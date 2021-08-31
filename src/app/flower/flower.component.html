@@ -1,0 +1,31 @@
+
+<h2 class="text-center">List of Flowers</h2>
+<div class="container my-2">
+    <table class="table table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <td>No.</td>
+                <td>Name</td>
+                <td>Origin</td>
+                <td>Options</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of flowers; index as idx">
+                <td> {{idx+1}} </td>
+                <td> {{f.name}} </td>
+                <td> {{f.origin}} </td>
+                <td>
+                    <a [routerLink]="['/flower/update',f.id]" class="btn btn-primary">Update</a>
+                    <a (click)="delete(f)"
+                        class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a routerLink='/flower/add'>Click here to add new flower</a>
+</div>
+
+
+
+    

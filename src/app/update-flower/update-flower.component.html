@@ -1,0 +1,20 @@
+<h2 class="text-center">Update flower form</h2>
+<div class="container my-2">    
+    <form [formGroup]="updateFlowerForm" #flower="ngForm" (ngSubmit)="update()">
+        <label for="name">Name</label>
+        <input
+            required
+            formControlName="name"
+            class="form-control" 
+            type="text" 
+            id="name">
+        <label for="origin">Origin</label>
+        <input 
+            required
+            formControlName="origin"
+            class="form-control" 
+            type="text" 
+            id="origin">
+        <button class="btn btn-primary" [disabled]="!flower.valid">Update flower</button>
+    </form>
+</div>
