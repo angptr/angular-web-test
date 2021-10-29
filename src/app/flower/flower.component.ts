@@ -7,21 +7,21 @@ import { FlowerService } from "../flower.service";
     templateUrl: './flower.component.html',
     styleUrls: ['./flower.component.css']
 })
-export class FlowerComponent{
-    flowers:any;
+export class FlowerComponent {
+    flowers: any;
 
-    constructor(private service: FlowerService, private router:ActivatedRoute) {    }
+    constructor(private service: FlowerService, private router: ActivatedRoute) { }
 
-    ngOnInit(){
+    ngOnInit() {
         this.service.getAllFlowers().subscribe(response => {
             this.flowers = response;
-        });        
+        });
     }
 
-    delete(f:any){
+    delete(f: any) {
         let result = this.service.deleteFlower(f);
-        if(result){
-            result.subscribe(response => {
+        if (result) {
+            result.subscribe(() => {
                 let idx = this.flowers.indexOf(f);
                 this.flowers.splice(idx, 1);
             });

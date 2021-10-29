@@ -9,17 +9,17 @@ import { FlowerService } from "../flower.service";
     styleUrls: ['./add-flower.component.css']
 })
 export class AddFlowerComponent {
-    constructor(private service: FlowerService, private route: ActivatedRoute, private router:Router){}
+    constructor(private service: FlowerService, private route: ActivatedRoute, private router: Router) { }
 
     addFlowerForm = new FormGroup({
-        name:new FormControl(),
-        origin:new FormControl()
+        name: new FormControl(),
+        origin: new FormControl()
     });
 
-    submit(){        
-        this.service.addFlower(this.addFlowerForm.value).subscribe(response => {
+    submit() {
+        this.service.addFlower(this.addFlowerForm.value).subscribe(() => {
             alert('Add flower successfully!');
             this.router.navigateByUrl('');
-        });        
-    }    
+        });
+    }
 }

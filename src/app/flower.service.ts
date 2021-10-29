@@ -15,19 +15,26 @@ export class FlowerService {
     }
 
     addFlower(f:any){
-        return this.http.post(this.url, f);
+        this.http.post(this.url, f);
+        return f;
+        // return this.http.post(this.url, f);
     }
 
     deleteFlower(f:any){
         let result = confirm("Are you sure you want to delete?");
         if(result) {
-            return this.http.delete(this.url + '/'+f.id);                
+            this.http.delete(this.url + '/'+f.id);
+            return f;
+
         }
         return null;
     }
 
     updateFlower(idx:any, f:any){
-        return this.http.put(this.url+'/'+idx, f);
+        this.http.put(this.url+'/'+idx, f);
+        // console.log(f);
+        return f;
+        // return this.http.put(this.url+'/'+idx, f);
     }
 
     getCurrentFlower(id:any){

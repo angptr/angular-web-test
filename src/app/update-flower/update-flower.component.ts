@@ -8,32 +8,32 @@ import { FlowerService } from "../flower.service";
     templateUrl: './update-flower.component.html'
     // styleUrls: ['./flower.component.css']
 })
-export class UpdateFlowerComponent{
-    constructor(private service:FlowerService, private route: ActivatedRoute, private router: Router){}
+export class UpdateFlowerComponent {
+    constructor(private service: FlowerService, private route: ActivatedRoute, private router: Router) { }
 
     updateFlowerForm = new FormGroup({
-        name:new FormControl(),
-        origin:new FormControl()
+        name: new FormControl(),
+        origin: new FormControl()
     });
 
-    flower:any;
-    idx:any;
+    flower: any;
+    idx: any;
 
-    ngOnInit(){        
-        this.idx = this.route.snapshot.paramMap.get('id'); 
+    ngOnInit() {
+        this.idx = this.route.snapshot.paramMap.get('id');
         this.service.getCurrentFlower(this.idx).subscribe(response => {
             this.flower = response;
             this.updateFlowerForm = new FormGroup({
-                name:new FormControl(this.flower['name']),
-                origin:new FormControl(this.flower['origin']) 
-            });                        
-        });        
+                name: new FormControl(this.flower['name']),
+                origin: new FormControl(this.flower['origin'])
+            });
+        });
     }
 
-    update(){
-        this.service.updateFlower(this.idx, this.updateFlowerForm.value).subscribe(response => {
+    update() {
+        this.service.updateFlower(this.idx, this.updateFlowerForm.value).subscribe(() => {
             alert('Update flower successfully!');
             this.router.navigateByUrl('');
-        });        
+        });
     }
 }

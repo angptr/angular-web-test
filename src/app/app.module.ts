@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http/'
+import { HttpClient, HttpClientModule } from '@angular/common/http/'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { UpdateFlowerComponent } from './update-flower/update-flower.component';
 import { FlowerComponent } from './flower/flower.component';
 import { AddFlowerComponent } from './add-flower/add-flower.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpClientTestingModule,
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
@@ -36,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ])
   ],
   providers: [
+    HttpClient,
     FlowerService
   ],
   bootstrap: [AppComponent]
