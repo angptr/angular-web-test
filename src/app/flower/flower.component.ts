@@ -10,7 +10,8 @@ import { FlowerService } from "../flower.service";
 export class FlowerComponent {
     flowers: any;
 
-    constructor(private service: FlowerService, private router: ActivatedRoute) { }
+    constructor(private service: FlowerService, 
+                 private router: ActivatedRoute) { }
 
     ngOnInit() {
         this.service.getAllFlowers().subscribe(response => {
